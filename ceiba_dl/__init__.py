@@ -58,6 +58,8 @@ class Request:
                 cipher = 'ECDHE-RSA-AES128-GCM-SHA256'
             elif tls_backend == 'NSS':
                 cipher = 'ecdhe_rsa_aes_128_gcm_sha_256'
+            elif tls_backend == '(SecureTransport) OpenSSL':
+                cipher = 'ECDHE-RSA-AES128-GCM-SHA256'
             else:
                 assert False, 'TLS 實作 {} 尚未支援'.format(tls_backend)
         self.curl.setopt(pycurl.USE_SSL, pycurl.USESSL_ALL)
